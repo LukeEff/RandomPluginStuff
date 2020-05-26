@@ -1,0 +1,4 @@
+name: SpigotTemplateNms_1-8-R3
+version: 1.0-SNAPSHOT
+api-version: '1.15'
+main: io.github.lukeeff.spigottemplate.HUDLearning
