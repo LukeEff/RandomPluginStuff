@@ -1,8 +1,6 @@
 package io.github.lukeeff.spigottemplate;
 
-import io.github.lukeeff.spigottemplate.wrappers.DolphinEntityTypeWrapper;
-import io.github.lukeeff.spigottemplate.wrappers.DolphinTypeWrapper;
-import net.minecraft.server.v1_15_R1.EnumMobSpawn;
+import io.github.lukeeff.spigottemplate.wrappers.DolphinEntityTypeRegistry;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
@@ -68,16 +66,8 @@ public class Censor implements Listener {
         if(e.getBlock().getBlockData().getMaterial().equals(Material.DIAMOND_BLOCK)) {
             e.getBlock().setType(Material.SPAWNER);
             BlockState state = e.getBlock().getState();
-            net.minecraft.server.v1_15_R1.World world = ((CraftWorld) e.getBlock().getWorld()).getHandle();
-            //DolphinTypeWrapper.DOLPHIN_WRAPPER.spawnCreature(world, null, null, null, EnumMobSpawn.SPAWNER, false, false);
-            //((CraftCreatureSpawner) state).setCreatureTypeByName(DolphinEntityTypeWrapper.nameKey);
-            ((CraftCreatureSpawner) state).setSpawnedType(DolphinEntityTypeWrapper.WRAPPED_DOLPHIN);
-
-                    //.setSpawnedType(DolphinEntityTypeWrapper.WRAPPED_DOLPHIN);
-            //dolphin
-            //e.getBlock().getState().getBlockData().
+            ((CraftCreatureSpawner) state).setSpawnedType(DolphinEntityTypeRegistry.WRAPPED_DOLPHIN);
             state.update();
-
         }
     }
 
